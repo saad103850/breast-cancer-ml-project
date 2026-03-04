@@ -1,3 +1,7 @@
+# Breast Cancer Classification  project
+#Author: Muhammad Saad
+
+
 import numpy as np
 import random
 
@@ -7,7 +11,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, f1_score, confusion_matrix
 
-# 1. Fix randomness (so results stay same every time)
+# 1. Fix randomness (so the results can be the  same every time)
 SEED = 42
 random.seed(SEED)
 np.random.seed(SEED)
@@ -17,12 +21,12 @@ data = load_breast_cancer()
 X = data.data   # features
 y = data.target # labels
 
-# 3. Split data (70% train, 30% test)
+# 3. Split data (70% for training, 30%  for testing)
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.3, random_state=SEED, stratify=y
 )
 
-# 4. Scale features (important!)
+# 4. Scale features 
 scaler = StandardScaler()
 X_train = scaler.fit_transform(X_train)
 X_test = scaler.transform(X_test)
